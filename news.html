@@ -13,12 +13,12 @@
       body {
         font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
         line-height: 1.6;
-        min-height: 100vh;
+        min-height: 100vh;  /* 确保body至少有一个视口高度 */
       }
 
       /* 主标题样式 */
       h1 {
-        font-family: Arial, sans-serif;
+        font-family: Arial, serif;
         font-size: 2.2em;
         font-weight: 600;
         color: #2c3e50;
@@ -49,7 +49,7 @@
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        padding-right: 15px;
+        padding-right: 15px;  /* 给最右侧加一点内边距 */
       }
 
       /* 日期样式 */
@@ -174,9 +174,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script type="module" src="/main.js"></script>
-    <script>
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
-    <script src="js/search.js"></script>
-</body>
+  </body>
 </html>

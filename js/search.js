@@ -50,10 +50,10 @@ class SearchManager {
 
         // 搜索结果容器的定位和尺寸样式
         resultsContainer.style.position = 'absolute';
-        resultsContainer.style.width = '40%';  // 将宽度从80%减小到60%
-        resultsContainer.style.top = '100%';   // 位于输入框正下方
-        resultsContainer.style.left = '50%';   // 配合transform实现水平居中
-        resultsContainer.style.transform = 'translateX(-15%)';  // 水平居中
+        // resultsContainer.style.width = '50%'; // 使用视口宽度单位
+        // resultsContainer.style.top = '100%';
+        // resultsContainer.style.left = '25%'; // 从中间开始
+        // resultsContainer.style.transform = 'none'; // 移除transform
         
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim();
@@ -92,7 +92,7 @@ class SearchManager {
     }
 
     createResultItem(result) {
-        const excerpt = this.createExcerpt(result.content, 100);
+        const excerpt = this.createExcerpt(result.content, 150);
         let finalUrl = result.url;
         if (!finalUrl.startsWith('/') && !finalUrl.startsWith('http')) {
             finalUrl = '/' + finalUrl;

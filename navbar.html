@@ -1,18 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="index.html">EASE</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-button"></span>
+    <button class="navbar-toggler collapsed" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <!-- 添加 collapse show 类来确保正确的初始状态 -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="people.html" id="peopleDropdown" 
-             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" 
+             href="#"
+             id="peopleDropdown" 
+             role="button" 
+             data-bs-toggle="dropdown" 
+             data-bs-auto-close="true"
+             aria-expanded="false">
             People
           </a>
-          <ul class="dropdown-menu" aria-labelledby="peopleDropdown">
+          <ul class="dropdown-menu" 
+              aria-labelledby="peopleDropdown">
             <li><a class="dropdown-item" href="people.html">PI</a></li>
             <li><a class="dropdown-item" href="students/feng-yang-zhang.html">Fengyang Zhang</a></li>
             <li><a class="dropdown-item" href="students/hai-bin-huang.html">Haibin Huang</a></li>
@@ -44,7 +57,50 @@
 
 <!-- 将Bootstrap的JS文件移到body最后，并确保jQuery也被加载 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
 <script src="/js/search.js"></script>
+
+<!-- 在底部添加初始化代码 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 获取所有dropdown触发器
+  var dropdowns = document.querySelectorAll('.dropdown-toggle');
+  
+  dropdowns.forEach(function(dropdown) {
+    dropdown.addEventListener('click', function(e) {
+      // 如果在移动视图中
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 切换当前下拉菜单
+        var dropdownMenu = this.nextElementSibling;
+        var isOpen = dropdownMenu.classList.contains('show');
+        
+        // 关闭所有其他打开的下拉菜单
+        document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+          if (menu !== dropdownMenu) {
+            menu.classList.remove('show');
+            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // 切换当前菜单
+        dropdownMenu.classList.toggle('show');
+        this.setAttribute('aria-expanded', !isOpen);
+      }
+    });
+  });
+  
+  // 点击外部关闭下拉菜单
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+        menu.classList.remove('show');
+        menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+});
+</script>

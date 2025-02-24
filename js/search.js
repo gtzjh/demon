@@ -48,12 +48,12 @@ class SearchManager {
         searchInput.style.boxShadow = 'none';
         searchInput.style.borderRadius = '20px';  // 添加圆角效果
 
-        // 添加定位样式
+        // 搜索结果容器的定位和尺寸样式
         resultsContainer.style.position = 'absolute';
-        resultsContainer.style.width = '60%';  // 将宽度从80%减小到60%
+        resultsContainer.style.width = '40%';  // 将宽度从80%减小到60%
         resultsContainer.style.top = '100%';   // 位于输入框正下方
         resultsContainer.style.left = '50%';   // 配合transform实现水平居中
-        resultsContainer.style.transform = 'translateX(-50%)';  // 水平居中
+        resultsContainer.style.transform = 'translateX(-15%)';  // 水平居中
         
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim();

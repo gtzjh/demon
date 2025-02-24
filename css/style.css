@@ -70,13 +70,3 @@ body {
         height: 200px;
     }
 }
-
-/* 移动端优先的媒体查询 */
-@media (min-width: 768px) { /* 平板/PC样式 */ }
-
-/* 触控友好尺寸规范 */
-.mobile-button {
-    min-width: 48px;
-    min-height: 48px;  /* 符合 Material Design 触控标准 */
-    padding: 12px;
-}

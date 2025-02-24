@@ -84,4 +84,21 @@
     .projects-header h1 {
         font-size: 3rem;
     }
+
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .profile-image-container {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+    }
+    
+    .profile-info {
+        flex: 0 0 100%;
+    }
 }

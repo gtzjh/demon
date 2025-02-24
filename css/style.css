@@ -69,4 +69,14 @@ body {
     .research-image {
         height: 200px;
     }
+    .container {
+        padding: 0 15px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }

@@ -48,14 +48,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* 当前页面或其子页面对应的导航项加粗 */
-.nav-link.active,
-.nav-link[href="people.html"].active ~ .dropdown-menu .dropdown-item.active,
-.nav-link[href="projects.html"].active ~ .dropdown-menu .dropdown-item.active {
-    color: #1a237e !important;  /* 高亮颜色 */
-    font-weight: bold !important;
-}
-
 /* 保持其他导航项的正常字重 */
 .nav-link:not(.active) {
     font-weight: normal;

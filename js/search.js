@@ -43,17 +43,18 @@ class SearchManager {
         const searchInput = document.getElementById('global-search');
         const resultsContainer = document.getElementById('search-results');
 
-        // 移除输入框的蓝色边框并调整圆角
+        // 设置输入框样式
         searchInput.style.outline = 'none';
         searchInput.style.boxShadow = 'none';
-        searchInput.style.borderRadius = '20px';  // 添加圆角效果
-
+        searchInput.style.borderRadius = '20px';
+        searchInput.style.width = '300px';
+        searchInput.style.marginRight = '20px';  // 添加右侧间距
+        
         // 搜索结果容器的定位和尺寸样式
         resultsContainer.style.position = 'absolute';
-        // resultsContainer.style.width = '50%'; // 使用视口宽度单位
-        // resultsContainer.style.top = '100%';
-        // resultsContainer.style.left = '25%'; // 从中间开始
-        // resultsContainer.style.transform = 'none'; // 移除transform
+        resultsContainer.style.maxHeight = '300px'; // 添加最大高度限制
+        resultsContainer.style.overflowY = 'auto';  // 启用垂直滚动
+        resultsContainer.style.width = '300px';  // 让结果容器宽度与输入框一致
         
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim();
@@ -92,7 +93,7 @@ class SearchManager {
     }
 
     createResultItem(result) {
-        const excerpt = this.createExcerpt(result.content, 150);
+        const excerpt = this.createExcerpt(result.content, 50);
         let finalUrl = result.url;
         if (!finalUrl.startsWith('/') && !finalUrl.startsWith('http')) {
             finalUrl = '/' + finalUrl;
@@ -100,8 +101,8 @@ class SearchManager {
         return `
             <a class="dropdown-item" href="${finalUrl}">
                 <div class="search-result-item">
-                    <h6>${result.title}</h6>
-                    <small class="text-muted">${excerpt}</small>
+                    <h6 style="font-size: 0.9rem; margin-bottom: 0.2rem;">${result.title}</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">${excerpt}</small>
                 </div>
             </a>
         `;

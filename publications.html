@@ -17,6 +17,19 @@
       rel="stylesheet" />
     <link href="css/navbar.css" rel="stylesheet" />
     <style>
+      /* 新增导航栏固定样式 */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      body {
+        padding-top: 56px;
+        margin-top: 0 !important;  /* 覆盖原有内联样式 */
+      }
+
       /* 页面整体基础字体 */
       body {
         font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
